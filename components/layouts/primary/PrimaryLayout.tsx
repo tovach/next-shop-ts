@@ -10,7 +10,7 @@ type PrimaryLayoutProps = {
 export const PrimaryLayout: FC<PrimaryLayoutProps> = ({ children }) => (
   <>
     <Header />
-    <main className='container mx-auto flex bg-green-300'>{children}</main>
+    <main>{children}</main>
     <Footer />
   </>
 );

@@ -1,10 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
-  body {
-    font-family: 'Montserrat', sans-serif;
-  }
-`;
 export const Fonts = createGlobalStyle`
   /* montserrat-regular - latin */
   @font-face {
@@ -51,29 +46,8 @@ export const Fonts = createGlobalStyle`
   }
 `;
 
-const breakPoints = {
-  xs: '0',
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-  xxl: '1400px'
-};
-
-export const Container = styled.div`
-  width: 100%;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 15px;
-  @media screen and (max-width: ${breakPoints.lg}) {
-    padding: 0 10px;
-  }
-
-  @media screen and (max-width: ${breakPoints.md}) {
-    padding: 0 10px;
-  }
-
-  @media screen and (max-width: ${breakPoints.sm}) {
-    padding: 0 5px;
+export const GlobalStyles = createGlobalStyle`
+  body {
+    font-family: 'Montserrat', sans-serif;
   }
 `;

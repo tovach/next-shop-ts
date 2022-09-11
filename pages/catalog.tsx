@@ -3,7 +3,6 @@ import { NextPageWithLayout } from 'pages/page';
 import { ReactElement } from 'react';
 
 import { PrimaryLayout } from '@components/layouts/primary';
-import { Aside } from '@containers/aside';
 
 const Catalog: NextPageWithLayout = () => (
   <>
@@ -11,18 +10,13 @@ const Catalog: NextPageWithLayout = () => (
       <title>Catalog page</title>
     </Head>
     <div>
-      <h3>Dynamic content</h3>
+      <h3>Catalog content</h3>
     </div>
   </>
 );
 
 Catalog.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <PrimaryLayout>
-      <Aside />
-      {page}
-    </PrimaryLayout>
-  );
+  return <PrimaryLayout>{page}</PrimaryLayout>;
 };
 
 export default Catalog;
