@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { NextPageWithLayout } from 'pages/page';
 import { ReactElement } from 'react';
 
-import { PrimaryLayout } from '@components/layouts/primary';
 import { PrimaryButton } from '@components/buttons';
+import { PrimaryLayout } from '@components/layouts/primary';
 
 const Home: NextPageWithLayout = () => (
   <>
