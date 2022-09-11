@@ -3,6 +3,7 @@ import { NextPageWithLayout } from 'pages/page';
 import { ReactElement } from 'react';
 
 import { PrimaryLayout } from '@components/layouts/primary';
+import { PrimaryButton } from '@components/buttons';
 
 const Home: NextPageWithLayout = () => (
   <>
@@ -11,6 +12,7 @@ const Home: NextPageWithLayout = () => (
     </Head>
     <div>
       <h3>Dynamic content</h3>
+      <PrimaryButton>Hello</PrimaryButton>
     </div>
   </>
 );
