@@ -10,6 +10,8 @@
       "@containers": ["./containers"],
       "@containers/*": ["./containers/*"],
       "@pages": ["./pages"],
+      "@styles/*": ["./styles/*"],
+      "@styles": ["./styles"],
       "@layouts": ["./layouts"],
       "@layouts/*": ["./layouts/*"],
       "@features/*": ["./features/*"],

@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 import { NextPageWithLayout } from 'pages/page';
-import { Fonts } from 'styles/fonts';
-import { GlobalStyles } from 'styles/globals';
 import { Normalize } from 'styled-normalize';
+
+import { Fonts, GlobalStyles } from '@styles/globals';
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;

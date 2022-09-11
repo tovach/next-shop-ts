@@ -4,16 +4,17 @@ import { ReactElement } from 'react';
 
 import { PrimaryButton } from '@components/buttons';
 import { PrimaryLayout } from '@components/layouts/primary';
+import { Container } from '@styles/globals';
 
 const Home: NextPageWithLayout = () => (
   <>
     <Head>
       <title>Homepage</title>
     </Head>
-    <div>
+    <Container>
       <h3>Dynamic content</h3>
       <PrimaryButton>Hello</PrimaryButton>
-    </div>
+    </Container>
   </>
 );
 
