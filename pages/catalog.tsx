@@ -1,10 +1,7 @@
+import { NextPage } from 'next';
 import Head from 'next/head';
-import { NextPageWithLayout } from 'pages/page';
-import { ReactElement } from 'react';
 
-import { PrimaryLayout } from '@components/layouts/primary';
-
-const Catalog: NextPageWithLayout = () => (
+const Catalog: NextPage = () => (
   <>
     <Head>
       <title>Catalog page</title>
@@ -14,9 +11,5 @@ const Catalog: NextPageWithLayout = () => (
     </div>
   </>
 );
-
-Catalog.getLayout = function getLayout(page: ReactElement) {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
-};
 
 export default Catalog;

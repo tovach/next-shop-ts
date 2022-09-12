@@ -7,7 +7,11 @@ module.exports = {
     './features/**/*.tsx'
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif']
+      }
+    }
   },
   plugins: []
 };

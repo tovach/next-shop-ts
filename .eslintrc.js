@@ -27,6 +27,7 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "prettier", "simple-import-sort"],
   rules: {
+    "jsx-a11y/anchor-is-valid": 1,
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0,
     "@typescript-eslint/no-shadow": 0,
@@ -43,7 +44,7 @@ module.exports = {
     "react/jsx-props-no-spreading": 0,
     "react/require-default-props": 0,
     "react/button-has-type": 0,
-    "react/no-unstable-nested-components": [2, { allowAsProps: true }],
+    "react/no-unstable-nested-components": [2, {allowAsProps: true}],
     "react/no-array-index-key": 0,
     "class-methods-use-this": 0,
     "no-param-reassign": 0,
