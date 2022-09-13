@@ -7,10 +7,15 @@ import { Product } from '@types';
 
 type ProductCardProps = {
   item: Product;
+  onClick: (item: Product) => void;
 };
 
-export const ProductCard: FC<ProductCardProps> = ({ item }) => (
-  <article className='flex h-[380px] w-[250px] cursor-pointer flex-col items-center gap-10 rounded border-2 border-jasmine p-2  duration-300 hover:scale-105 hover:shadow-2xl'>
+export const ProductCard: FC<ProductCardProps> = ({ item, onClick }) => (
+  <article
+    className='flex h-[380px] w-[250px] cursor-pointer flex-col items-center gap-10 rounded border-2 border-jasmine p-2  duration-300 hover:scale-105 hover:shadow-2xl'
+    onClick={() => onClick(item)}
+    aria-hidden
+  >
     <PrimaryRating count={item.rating.count} rate={item.rating.rate} />
     <Image src={item.image} width={110} height={120} />
     <h3 className='mt-auto text-center font-bold'>{item.title}</h3>

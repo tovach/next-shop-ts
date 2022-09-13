@@ -1,18 +1,16 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
-import { ProductCard } from '@components/cards';
 import { Product } from '@types';
 
 type ProductListProps = {
   items: Product[];
+  renderItem: (item: Product) => ReactNode;
 };
 
-export const ProductList: FC<ProductListProps> = ({ items }) => (
+export const ProductList: FC<ProductListProps> = ({ items, renderItem }) => (
   <ul className='flex flex-wrap justify-center gap-2'>
     {items.map((el) => (
-      <li key={el.id}>
-        <ProductCard item={el} />
-      </li>
+      <li key={el.id}>{renderItem(el)}</li>
     ))}
   </ul>
 );

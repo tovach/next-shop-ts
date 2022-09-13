@@ -13,17 +13,18 @@
       "@public": ["./public"],
       "@public/*": ["./public/*"],
       "@styles/*": ["./styles/*"],
+      "@store": ["./store"],
+      "@store/*": ["./store/*"],
+      "@hooks": ["./hooks"],
+      "@hooks/*": ["./hooks/*"],
       "@types": ["./types"],
       "@styles": ["./styles"],
       "@layouts": ["./layouts"],
       "@layouts/*": ["./layouts/*"],
       "@features/*": ["./features/*"],
       "@assets/*": ["./assets/*"],
-      "@utils/api": ["./utils/api"],
-      "@utils/constants": ["./utils/constants"],
-      "@utils/helpers": ["./utils/helpers"],
-      "@utils/contexts": ["./utils/contexts"],
-      "@utils/hooks": ["./utils/hooks"]
+      "@utils": ["./utils"],
+      "@utils/*": ["./utils/*"]
     }
   }
 }
