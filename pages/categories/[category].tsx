@@ -3,8 +3,10 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ENDPOINTS } from 'utils/constants/api';
 
+import { PrimaryProductCard } from '@components/cards';
 import { PrimaryLayout } from '@components/layouts';
 import { ProductList } from '@components/lists';
+import { useModalActions } from '@hooks/store';
 import { Product } from '@types';
 import { fetcher } from '@utils/helpers';
 
@@ -15,6 +17,12 @@ type CategoryProps = {
 const Category: NextPage<CategoryProps> = ({ items }) => {
   const router = useRouter();
   const { category } = router.query;
+  const { pushModalContent, setModalOpen } = useModalActions();
+  const onCardClick = (item: Product) => {
+    pushModalContent(item);
+    setModalOpen();
+  };
+  const renderItem = (item: Product) => <PrimaryProductCard item={item} onClick={onCardClick} />;
 
   return (
     <>
@@ -24,7 +32,7 @@ const Category: NextPage<CategoryProps> = ({ items }) => {
       <PrimaryLayout>
         <h3 className='m-2 text-2xl font-bold capitalize'>{category}</h3>
         {items instanceof Array ? (
-          <ProductList items={items} />
+          <ProductList items={items} renderItem={renderItem} />
         ) : (
           items !== undefined && <h3>{items}</h3>
         )}

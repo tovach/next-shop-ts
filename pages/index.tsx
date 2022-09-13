@@ -1,11 +1,10 @@
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
-import { ProductCard } from '@components/cards';
+import { PrimaryProductCard } from '@components/cards';
 import { PrimaryLayout } from '@components/layouts';
 import { ProductList } from '@components/lists';
-import { PrimaryModal } from '@features/modals';
-import { useModalActions } from '@hooks/store';
+import { useCartActions, useModalActions } from '@hooks/store';
 import { Product } from '@types';
 import { ENDPOINTS } from '@utils/constants/api';
 import { fetcher } from '@utils/helpers';
@@ -16,12 +15,20 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ products }) => {
   const { pushModalContent, setModalOpen } = useModalActions();
+  const { addItem } = useCartActions();
+
   const onCardClick = (item: Product) => {
     pushModalContent(item);
     setModalOpen();
   };
 
-  const renderItem = (item: Product) => <ProductCard item={item} onClick={onCardClick} />;
+  const onItemAdd = (item: Product) => {
+    addItem(item);
+  };
+
+  const renderItem = (item: Product) => (
+    <PrimaryProductCard item={item} onCardClick={onCardClick} onItemAdd={onItemAdd} />
+  );
 
   return (
     <>
@@ -35,7 +42,6 @@ const Home: NextPage<HomeProps> = ({ products }) => {
         ) : (
           products !== undefined && <h3>{products}</h3>
         )}
-        <PrimaryModal />
       </PrimaryLayout>
     </>
   );

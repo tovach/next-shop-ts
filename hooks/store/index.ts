@@ -2,6 +2,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { AppDispatch, AppStoreState } from '@store';
+import { addItem, deleteItem } from '@store/slices/cartSlice/cartSlice';
 import {
   pushModalContent,
   resetModalContent,
@@ -17,3 +18,5 @@ export const useModalActions = () =>
     { pushModalContent, resetModalContent, setModalClose, setModalOpen },
     useAppDispatch()
   );
+
+export const useCartActions = () => bindActionCreators({ addItem, deleteItem }, useAppDispatch());

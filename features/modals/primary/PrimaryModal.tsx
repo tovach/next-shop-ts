@@ -1,8 +1,6 @@
-import Image from 'next/image';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-import { PrimaryButton } from '@components/buttons';
-import { PrimaryRating } from '@components/ratings';
+import { SecondaryProductCard } from '@components/cards';
 import { useAppSelector, useModalActions } from '@hooks/store';
 
 type PrimaryModalProps = {
@@ -22,18 +20,7 @@ export const PrimaryModal: FC<PrimaryModalProps> = () => {
   return (
     <div className='scrollbar-hide fixed top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-gray/40 backdrop-blur'>
       <div className='relative flex items-center justify-center rounded bg-white p-10 shadow-2xl'>
-        <article className='cursor-pointeritems-center flex gap-10 rounded p-2'>
-          <div className='flex flex-col items-center justify-center gap-5'>
-            <PrimaryRating count={content.rating.count} rate={content.rating.rate} />
-            <Image src={content.image} width={110} height={120} />
-            <h5 className='font-bold'>{content.price} $</h5>
-          </div>
-          <div className='flex max-w-md flex-col gap-5'>
-            <h3 className='mt-auto text-center font-bold'>{content.title}</h3>
-            <p>{content.description}</p>
-            <PrimaryButton className='self-end'>Add to card</PrimaryButton>
-          </div>
-        </article>
+        <SecondaryProductCard buttonTitle='Add to card' item={content} onButtonClick={() => {}} />
         <button
           onClick={onClose}
           type='button'

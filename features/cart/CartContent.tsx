@@ -13,9 +13,9 @@ export const CartContent: FC<CartContentProps> = () => {
     return <h3>Cart empty</h3>;
   }
   return (
-    <ul>
+    <ul className='flex flex-col gap-2'>
       {items.map((item) => (
-        <li key={item.id}>
+        <li key={item.id} className='border-b border-mindaro pb-2'>
           <SecondaryProductCard item={item} buttonTitle='Checkout' onButtonClick={() => {}} />
         </li>
       ))}
