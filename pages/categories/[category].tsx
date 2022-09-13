@@ -19,9 +19,10 @@ const Category: NextPage<CategoryProps> = ({ items }) => {
   return (
     <>
       <Head>
-        <title>{category} page</title>
+        <title>Next shop | {category}</title>
       </Head>
       <PrimaryLayout>
+        <h3 className='m-2 text-2xl font-bold capitalize'>{category}</h3>
         {items instanceof Array ? (
           <ProductList items={items} />
         ) : (

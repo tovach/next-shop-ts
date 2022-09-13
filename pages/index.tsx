@@ -11,23 +11,21 @@ type HomeProps = {
   products: Product[] | Error['message'] | undefined;
 };
 
-const Home: NextPage<HomeProps> = ({ products }) => {
-  console.log();
-  return (
-    <>
-      <Head>
-        <title>Homepage</title>
-      </Head>
-      <PrimaryLayout>
-        {products instanceof Array ? (
-          <ProductList items={products} />
-        ) : (
-          products !== undefined && <h3>{products}</h3>
-        )}
-      </PrimaryLayout>
-    </>
-  );
-};
+const Home: NextPage<HomeProps> = ({ products }) => (
+  <>
+    <Head>
+      <title>Next shop | Homepage</title>
+    </Head>
+    <PrimaryLayout>
+      <h3 className='m-2 text-2xl font-bold'>All products</h3>
+      {products instanceof Array ? (
+        <ProductList items={products} />
+      ) : (
+        products !== undefined && <h3>{products}</h3>
+      )}
+    </PrimaryLayout>
+  </>
+);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const products = await fetcher<Product[]>(ENDPOINTS.products);

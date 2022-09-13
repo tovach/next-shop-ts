@@ -11,7 +11,7 @@ export const Logo: FC<LogoProps> = () => (
     <a>
       <span className='flex items-center gap-2 font-montserrat font-bold uppercase'>
         <Image src={logoImage} width={40} height={40} />
-        <h3>Shop</h3>
+        <h3>Next Shop</h3>
       </span>
     </a>
   </Link>

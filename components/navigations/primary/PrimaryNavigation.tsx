@@ -14,7 +14,7 @@ export const PrimaryNavigation: FC<PrimaryNavigationProps> = ({ categories, link
       {categories.map((el, index) => (
         <li key={index}>
           <Link href={`${linkPath}${el}`}>
-            <a>{el.toUpperCase()}</a>
+            <a className='decoration-blue underline-offset-8 hover:underline'>{el.toUpperCase()}</a>
           </Link>
         </li>
       ))}

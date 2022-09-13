@@ -6,7 +6,7 @@ type PrimaryRatingProps = {
 };
 
 export const PrimaryRating: FC<PrimaryRatingProps> = ({ count, rate }) => (
-  <div className='flex items-center w-full'>
+  <div className='flex w-full items-center'>
     <ul className='flex items-center'>
       {Array(Math.floor(rate))
         .fill(1)
@@ -25,8 +25,11 @@ export const PrimaryRating: FC<PrimaryRatingProps> = ({ count, rate }) => (
         ))}
     </ul>
     <div className='ml-auto flex'>
-      <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">{rate} / 5</p>
-      <p className="ml-2 text-sm font-medium underline text-gray-500 dark:text-gray-400"> {count} votes</p>
+      <p className='text-gray-500 dark:text-gray-400 ml-2 text-sm font-medium'>{rate} / 5</p>
+      <p className='text-gray-500 dark:text-gray-400 ml-2 text-sm font-medium underline'>
+        {' '}
+        {count} votes
+      </p>
     </div>
   </div>
 );
