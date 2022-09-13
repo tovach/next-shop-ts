@@ -1,5 +1,5 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
-type FooterProps = {};
+type FooterProps = HTMLAttributes<HTMLDivElement> & {};
 
-export const Footer: FC<FooterProps> = () => <footer>Footer</footer>;
+export const Footer: FC<FooterProps> = ({ ...props }) => <footer {...props}>Footer</footer>;

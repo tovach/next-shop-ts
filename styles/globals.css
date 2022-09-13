@@ -54,3 +54,9 @@
     url('../assets/fonts/montserrat-v25-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
     url('../assets/fonts/montserrat-v25-latin-800.svg#Montserrat') format('svg'); /* Legacy iOS */
 }
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

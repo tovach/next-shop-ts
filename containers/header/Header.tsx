@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Logo } from '@components/common';
-import { PrimaryNavigation } from '@components/navigations/primary/PrimaryNavigation';
+import { PrimaryNavigation } from '@components/navigations';
 
 type HeaderProps = {};
 
