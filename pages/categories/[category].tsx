@@ -6,7 +6,7 @@ import { ENDPOINTS } from 'utils/constants/api';
 import { PrimaryProductCard } from '@components/cards';
 import { PrimaryLayout } from '@components/layouts';
 import { ProductList } from '@components/lists';
-import { useModalActions } from '@hooks/store';
+import { useCartActions, useModalActions } from '@hooks/store';
 import { Product } from '@types';
 import { fetcher } from '@utils/helpers';
 
@@ -18,11 +18,20 @@ const Category: NextPage<CategoryProps> = ({ items }) => {
   const router = useRouter();
   const { category } = router.query;
   const { pushModalContent, setModalOpen } = useModalActions();
+  const { addItem } = useCartActions();
+
   const onCardClick = (item: Product) => {
     pushModalContent(item);
     setModalOpen();
   };
-  const renderItem = (item: Product) => <PrimaryProductCard item={item} onClick={onCardClick} />;
+
+  const onItemAdd = (item: Product) => {
+    addItem(item);
+  };
+
+  const renderItem = (item: Product) => (
+    <PrimaryProductCard item={item} onCardClick={onCardClick} onItemAdd={onItemAdd} />
+  );
 
   return (
     <>
