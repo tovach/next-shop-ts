@@ -13,4 +13,6 @@ export interface Product {
   category: string;
   image: string;
   rating: Rating;
+  qty?: number;
+  amount?: number;
 }

@@ -2,7 +2,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { AppDispatch, AppStoreState } from '@store';
-import { addItem, deleteItem } from '@store/slices/cartSlice/cartSlice';
+import { addItem, decreaseItem, deleteItem, resetCart } from '@store/slices/cartSlice/cartSlice';
 import {
   pushModalContent,
   resetModalContent,
@@ -19,4 +19,5 @@ export const useModalActions = () =>
     useAppDispatch()
   );
 
-export const useCartActions = () => bindActionCreators({ addItem, deleteItem }, useAppDispatch());
+export const useCartActions = () =>
+  bindActionCreators({ addItem, deleteItem, decreaseItem, resetCart }, useAppDispatch());

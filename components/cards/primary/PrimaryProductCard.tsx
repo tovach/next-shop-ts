@@ -8,13 +8,15 @@ import { Product } from '@types';
 type PrimaryProductCardProps = {
   item: Product;
   onCardClick: (item: Product) => void;
-  onItemAdd: (item: Product) => void;
+  onButtonClick: (item: Product) => void;
+  buttonTitle: string;
 };
 
 export const PrimaryProductCard: FC<PrimaryProductCardProps> = ({
   item,
   onCardClick,
-  onItemAdd
+  onButtonClick,
+  buttonTitle
 }) => (
   <article
     className='flex h-[380px] w-[250px] cursor-pointer flex-col items-center gap-10 rounded border-2 border-jasmine p-2  duration-300 hover:scale-105 hover:shadow-2xl'
@@ -29,10 +31,10 @@ export const PrimaryProductCard: FC<PrimaryProductCardProps> = ({
       <PrimaryButton
         onClick={(e) => {
           e.stopPropagation();
-          onItemAdd(item);
+          onButtonClick(item);
         }}
       >
-        Add to card
+        {buttonTitle}
       </PrimaryButton>
     </div>
   </article>

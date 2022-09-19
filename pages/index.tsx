@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { PrimaryProductCard } from '@components/cards';
 import { PrimaryLayout } from '@components/layouts';
 import { ProductList } from '@components/lists';
-import { useCartActions, useModalActions } from '@hooks/store';
+import { useAppSelector, useCartActions, useModalActions } from '@hooks/store';
 import { Product } from '@types';
 import { ENDPOINTS } from '@utils/constants/api';
 import { fetcher } from '@utils/helpers';
@@ -17,6 +17,9 @@ const Home: NextPage<HomeProps> = ({ products }) => {
   const { pushModalContent, setModalOpen } = useModalActions();
   const { addItem } = useCartActions();
 
+  const { items } = useAppSelector((state) => state.cartSlice);
+  const isExist = (item: Product, arr: Product[]) => arr.some((el) => el.id === item.id);
+
   const onCardClick = (item: Product) => {
     pushModalContent(item);
     setModalOpen();
@@ -27,7 +30,12 @@ const Home: NextPage<HomeProps> = ({ products }) => {
   };
 
   const renderItem = (item: Product) => (
-    <PrimaryProductCard item={item} onCardClick={onCardClick} onItemAdd={onItemAdd} />
+    <PrimaryProductCard
+      item={item}
+      onCardClick={onCardClick}
+      onButtonClick={onItemAdd}
+      buttonTitle={isExist(item, items) ? 'One more' : 'Add to card'}
+    />
   );
 
   return (

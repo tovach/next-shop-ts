@@ -1,7 +1,8 @@
 import { FC } from 'react';
 
 import { SecondaryProductCard } from '@components/cards';
-import { useAppSelector, useModalActions } from '@hooks/store';
+import { useAppSelector, useCartActions, useModalActions } from '@hooks/store';
+import { Product } from '@types';
 
 type PrimaryModalProps = {
   children?: never;
@@ -10,6 +11,11 @@ type PrimaryModalProps = {
 export const PrimaryModal: FC<PrimaryModalProps> = () => {
   const { resetModalContent, setModalClose } = useModalActions();
   const { content, isOpen } = useAppSelector((state) => state.modalSlice);
+  const { addItem } = useCartActions();
+  const { items } = useAppSelector((state) => state.cartSlice);
+
+  const isExist = (item: Product, arr: Product[]) => arr.some((el) => el.id === item.id);
+
   const onClose = () => {
     setModalClose();
     resetModalContent();
@@ -20,7 +26,11 @@ export const PrimaryModal: FC<PrimaryModalProps> = () => {
   return (
     <div className='scrollbar-hide fixed top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-gray/40 backdrop-blur'>
       <div className='relative flex items-center justify-center rounded bg-white p-10 shadow-2xl'>
-        <SecondaryProductCard buttonTitle='Add to card' item={content} onButtonClick={() => {}} />
+        <SecondaryProductCard
+          buttonTitle={isExist(content, items) ? 'One more' : 'Add to card'}
+          item={content}
+          onButtonClick={addItem}
+        />
         <button
           onClick={onClose}
           type='button'
